@@ -381,8 +381,15 @@
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/23/guestbook/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -563,22 +570,15 @@
       
         
           
-            <h3 id="博客的本地搭建"><a href="#博客的本地搭建" class="headerlink" title="博客的本地搭建"></a>博客的本地搭建</h3><p>安装hexo之前，就必须先安装Node.js和Git，安装好后，在cmd在输入node -v、npm -v和git -v,都能没什么问题，但当我输入npm install hexo-cli -g指令后，继续输入hexo -v,便出现了如下情况<br><img src="/assets/QQ%E5%9B%BE%E7%89%8720200225111549.png" alt="alt 问题"><br>之后我又重新安装了Node.js和Git但依旧出现了这种情况，我又网上寻找原因，最后才解决了问题。</p>
-<h3 id="写博文"><a href="#写博文" class="headerlink" title="写博文"></a>写博文</h3><p>在这块并没有遇到太大的问题，完全参照老师的博客<a href="http://www.yangkai123.top/" target="_blank" rel="noopener">http://www.yangkai123.top/</a> 中的第二篇自己动手写博文来完成的。</p>
-<h3 id="hexo博客乔迁Github"><a href="#hexo博客乔迁Github" class="headerlink" title="hexo博客乔迁Github"></a>hexo博客乔迁Github</h3><p>在这个过程中我遇到的问题比较多，具体问题如下：</p>
-<ul>
-<li>注册Github<br>我在注册Github时，总是卡在第一步,邮箱收不到验证信息，我到网上找到了解决的办法：可以用苹果自带的浏览器注册，手机是安卓的可以下载一个火狐浏览器，在火狐浏览器注册，这样邮箱就能收验证信息，Github也能注册成功。</li>
-<li>在Github下新建仓库<br>新建仓库的时候，在Settings中Github Pages这一部分有Your site is published at<a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 字样<br><img src="/assets/b.png" alt="alt 问题"><br>到网上也找不到原因，我就总是了同学，她告诉我在新建仓库的时候，有一个选项没打钩，如下：<br><img src="/assets/c.png" alt="alt 问题"><br>所以我就把仓库删掉重建，问题就解决了。</li>
-<li>配置ssh密钥<br>在执行hexo d的时候，就会出现错误和警告，当时我并不知道要配置ssh密钥，具体步骤可参照<a href="https://www.cnblogs.com/zwdeblog/p/9708503.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwdeblog/p/9708503.html</a></li>
-<li>添加博文肉容时出现的问题<br>在添加博文内容时，不知道是什么原因，出现了如下问题：<br><img src="/assets/d.png" alt="alt 问题"><br>我在网上寻找原因，重新输入了git –global usr.name”you name “和git –global usr.email”<a href="mailto:you@qq.com">you@qq.com</a>“，当输入ssh -T <a href="mailto:git@github.com">git@github.com</a>后出现了下面的情况<br><img src="/assets/e.png" alt="alt 问题"><br>我又在网上找方法，有下面的方法解决了问题<br><img src="/assets/f.png" alt="alt 问题"></li>
-</ul>
-<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><p>在添加图片的时候，我是直接打开用来写博文的Typaora，在文件-&gt;偏好设置-&gt; 图像进行如下操作<br><img src="/assets/g.png" alt="alt 图片"><br>这样是不能显示图片的，要在格式-&gt;图像-&gt;设置图片根目录，把目录设置到source就可以了</p>
-<h3 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h3><ul>
-<li>添加评论必须要先选择一个主题。在这里我选择的是next主题，首先克隆项目到themes目录下，输入git clone <a href="mailto:git@github.com">git@github.com</a>:iissnan/hexo-teme-next，在站点配置文件中把theme设置为next即可。注意：配置文件不是next下的配置文件，而是bolg下的配置文件。</li>
-<li>下面就可以添加评论了，我选择的是leancloud作为评论插件，先去<a href="https://www.leancloud.cn" target="_blank" rel="noopener">https://www.leancloud.cn</a> 官网注册注册好后，先创建应用，直接默认即可。<br><img src="/assets/h.png" alt="alt 图片"><br>然后选择设置-&gt;安全中心，再应用 Keys中的AppID和AppKey复制到next下的配置文件，修改配置，定位到valine<br><img src="/assets/j.png" alt="alt 图片"><br>在安全中心中，将服务开关中打开数据存储，其余都关闭，在web安全域名输入你的博客链接点击保存。<br><img src="/assets/i.png" alt="alt 图片"><br>最后添加评论次数，设置-&gt;存储-&gt;创建Class，创建Comment来统计评论次数<br><img src="/assets/k.png" alt="alt 图片"></li>
-</ul>
-
-          
+          博客的本地搭建安装hexo之前，就必须先安装Node.js和Git，安装好后，在cmd在输入node -v、npm -v和git -v,都能没什么问题，但当我输入npm install hexo-cli -g指令后，继续输入hexo -v,便出现了如下情况之后我又重新安装了Node.js和Git但依
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/25/study/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -737,21 +737,15 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/24/hello-world/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
