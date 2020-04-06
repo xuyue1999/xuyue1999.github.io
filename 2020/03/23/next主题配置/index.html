@@ -79,14 +79,25 @@
 
 
 
+<meta name="description" content="Next主题样式设置Next主题还有4种风格供我们选择，打开next下的_config.yml(主题配置文件 )，找到Scheme Settings 12345# Schemes# scheme: Muse# scheme: Mist# scheme: Piscesscheme: Gemini 4种风格大同小异，在这里我选择的是Gemini风格，只要把前面的注释去掉就可以了。 首页显示阅读全文打开">
 <meta property="og:type" content="article">
 <meta property="og:title" content="next主题配置">
 <meta property="og:url" content="http://yoursite.com/2020/03/23/next%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Next主题样式设置Next主题还有4种风格供我们选择，打开next下的_config.yml(主题配置文件 )，找到Scheme Settings 12345# Schemes# scheme: Muse# scheme: Mist# scheme: Piscesscheme: Gemini 4种风格大同小异，在这里我选择的是Gemini风格，只要把前面的注释去掉就可以了。 首页显示阅读全文打开">
+<meta property="og:image" content="http://yoursite.com/assets/c1.png">
+<meta property="og:image" content="http://yoursite.com/assets/b1.png">
+<meta property="og:image" content="http://yoursite.com/assets/a1.png">
+<meta property="og:image" content="http://yoursite.com/assets/x.png">
+<meta property="og:image" content="http://yoursite.com/assets/v.png">
+<meta property="og:image" content="http://yoursite.com/assets/w.png">
+<meta property="og:image" content="http://yoursite.com/assets/z.png">
+<meta property="og:image" content="http://yoursite.com/assets/y.png">
 <meta property="article:published_time" content="2020-03-23T07:39:29.000Z">
-<meta property="article:modified_time" content="2020-04-03T01:09:02.599Z">
+<meta property="article:modified_time" content="2020-04-06T12:01:50.489Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/assets/c1.png">
 
 
 
@@ -226,16 +237,6 @@
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-guestbook">
-          <a href="/guestbook/%20" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
-            
-            guestbook
-          </a>
-        </li>
-      
 
       
     </ul>
@@ -362,7 +363,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  786
                 </span>
               
 
@@ -378,7 +379,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  3
                 </span>
               
             </div>
@@ -399,7 +400,30 @@
       
 
       
-        
+        <h3 id="Next主题样式设置"><a href="#Next主题样式设置" class="headerlink" title="Next主题样式设置"></a>Next主题样式设置</h3><p>Next主题还有4种风格供我们选择，打开next下的_config.yml(主题配置文件 )，找到Scheme Settings</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># Schemes</span><br><span class="line"># scheme: Muse</span><br><span class="line"># scheme: Mist</span><br><span class="line"># scheme: Pisces</span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
+<p>4种风格大同小异，在这里我选择的是Gemini风格，只要把前面的注释去掉就可以了。</p>
+<h3 id="首页显示阅读全文"><a href="#首页显示阅读全文" class="headerlink" title="首页显示阅读全文"></a>首页显示阅读全文</h3><p>打开next下的_config.yml(主题配置文件 )，找到auto_excerpt:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">auto_excerpt:</span><br><span class="line">  enable: true  #设置是否显示阅读全文</span><br><span class="line">  length: 80    #预览多少字</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/c1.png" alt="alt 图片"></p>
+<h3 id="菜单设置"><a href="#菜单设置" class="headerlink" title="菜单设置"></a>菜单设置</h3><p>菜单菜单包括：首页、归档、分类、标签、关于等等<br>打开next下的_config.yml(主题配置文件 )，找到Menu Settings，看看你需要哪个菜单就把哪个取消注释打开就行了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: &#x2F; || home                          &#x2F;&#x2F;首页</span><br><span class="line">  archives: &#x2F;archives&#x2F; || archive          &#x2F;&#x2F;归档</span><br><span class="line">  categories: &#x2F;categories&#x2F; || th           &#x2F;&#x2F;分类</span><br><span class="line">  tags: &#x2F;tags&#x2F; || tags                     &#x2F;&#x2F;标签</span><br><span class="line">  about: &#x2F;about&#x2F; || user                   &#x2F;&#x2F;关于</span><br><span class="line">  #schedule: &#x2F;schedule&#x2F; || calendar        &#x2F;&#x2F;日程表</span><br><span class="line">  #sitemap: &#x2F;sitemap.xml || sitemap        &#x2F;&#x2F;站点地图</span><br><span class="line">  #commonweal: &#x2F;404&#x2F; || heartbeat          &#x2F;&#x2F;公益404</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/b1.png" alt="alt 图片"></p>
+<h3 id="侧栏设置"><a href="#侧栏设置" class="headerlink" title="侧栏设置"></a>侧栏设置</h3><p>侧栏设置包括：侧栏位置、侧栏显示与否、文章间距、返回顶部按钮等等<br>打开next下的_config.yml(主题配置文件 )，找到sidebar字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sidebar:</span><br><span class="line"># Sidebar Position - 侧栏位置（只对Pisces | Gemini两种风格有效）</span><br><span class="line">  position: left        &#x2F;&#x2F;靠左放置</span><br><span class="line">  #position: right      &#x2F;&#x2F;靠右放置</span><br><span class="line"></span><br><span class="line"># Sidebar Display - 侧栏显示时机（只对Muse | Mist两种风格有效）</span><br><span class="line">  #display: post        &#x2F;&#x2F;默认行为，在文章页面（拥有目录列表）时显示</span><br><span class="line">  display: always       &#x2F;&#x2F;在所有页面中都显示</span><br><span class="line">  #display: hide        &#x2F;&#x2F;在所有页面中都隐藏（可以手动展开）</span><br><span class="line">  #display: remove      &#x2F;&#x2F;完全移除</span><br><span class="line"></span><br><span class="line">  offset: 12            &#x2F;&#x2F;文章间距（只对Pisces | Gemini两种风格有效）</span><br><span class="line"></span><br><span class="line">  b2t: false            &#x2F;&#x2F;返回顶部按钮（只对Pisces | Gemini两种风格有效）</span><br><span class="line"></span><br><span class="line">  scrollpercent: true   &#x2F;&#x2F;返回顶部按钮的百分比</span><br></pre></td></tr></table></figure>
+<h3 id="头像设置"><a href="#头像设置" class="headerlink" title="头像设置"></a>头像设置</h3><p>打开next下的_config.yml(主题配置文件 )，找到sidebar字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Sidebar Avatar</span><br><span class="line">avatar: &#x2F;images&#x2F;avatar.png</span><br></pre></td></tr></table></figure>
+<p>这是头像的路径，只需把你的头像命名为avatar.png（随便命名）放入themes/next/source/images中，将avatar的路径名改成你的头像名就OK啦！<br><img src="/assets/a1.png" alt="alt 图片"></p>
+<h3 id="动态背景"><a href="#动态背景" class="headerlink" title="动态背景"></a>动态背景</h3><p>打开next下的_config.yml(主题配置文件 )</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Canvas-nest</span><br><span class="line">canvas_nest: true</span><br><span class="line"></span><br><span class="line"># three_waves</span><br><span class="line">three_waves: false</span><br><span class="line"></span><br><span class="line"># canvas_lines</span><br><span class="line">canvas_lines: false</span><br><span class="line"></span><br><span class="line"># canvas_sphere</span><br><span class="line">canvas_sphere: false</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/x.png" alt="alt 图片"><br>选择一个自己喜欢的将其设置为true即可</p>
+<h3 id="添加背景音乐"><a href="#添加背景音乐" class="headerlink" title="添加背景音乐"></a>添加背景音乐</h3><p>打开<a href="https://music.163.com/" target="_blank" rel="noopener">网易云</a>，搜索你所要的音乐<br><img src="/assets/v.png" alt="alt 图片"><br>点击生成外链播放器<br><img src="/assets/w.png" alt="alt 图片"><br>然后根据你得设置生成相应的html代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> &lt;div id&#x3D;&quot;music163player&quot;&gt;</span><br><span class="line">    &lt;iframe frameborder&#x3D;&quot;no&quot; border&#x3D;&quot;0&quot; marginwidth&#x3D;&quot;0&quot; marginheight&#x3D;&quot;0&quot; width&#x3D;330 height&#x3D;86 src&#x3D;&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type&#x3D;2&amp;id&#x3D;28188427&amp;auto&#x3D;1&amp;height&#x3D;66&quot;&gt;&lt;&#x2F;iframe&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<p>将获得的html代码插入到next/laout/_macro/sidebar.swig下的后面(</aside>前面)即可。<br><img src="/assets/z.png" alt="alt 图片"></p>
+<h3 id="字数统计和阅读时长"><a href="#字数统计和阅读时长" class="headerlink" title="字数统计和阅读时长"></a>字数统计和阅读时长</h3><p>只需要在主题配置文件 _config.yml 中打开 wordcount 统计功能即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">post_wordcount:</span><br><span class="line">  item_text: true</span><br><span class="line">  wordcount: true         # 单篇 字数统计</span><br><span class="line">  min2read: true          # 单篇 阅读时长</span><br><span class="line">  totalcount: false       # 网站 字数统计</span><br><span class="line">  separated_meta: true</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/y.png" alt="alt 图片"></p>
+
       
     </div>
     
@@ -423,8 +447,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/25/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="建立博客遇到的问题与解决方法">
-                <i class="fa fa-chevron-left"></i> 建立博客遇到的问题与解决方法
+              <a href="/2020/02/25/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/" rel="next" title="如何建立博客">
+                <i class="fa fa-chevron-left"></i> 如何建立博客
               </a>
             
           </div>
@@ -486,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -558,6 +591,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Next主题样式设置"><span class="nav-number">1.</span> <span class="nav-text">Next主题样式设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#首页显示阅读全文"><span class="nav-number">2.</span> <span class="nav-text">首页显示阅读全文</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#菜单设置"><span class="nav-number">3.</span> <span class="nav-text">菜单设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#侧栏设置"><span class="nav-number">4.</span> <span class="nav-text">侧栏设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头像设置"><span class="nav-number">5.</span> <span class="nav-text">头像设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态背景"><span class="nav-number">6.</span> <span class="nav-text">动态背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加背景音乐"><span class="nav-number">7.</span> <span class="nav-text">添加背景音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字数统计和阅读时长"><span class="nav-number">8.</span> <span class="nav-text">字数统计和阅读时长</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
