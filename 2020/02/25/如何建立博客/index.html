@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://yoursite.com/assets/i.png">
 <meta property="og:image" content="http://yoursite.com/assets/k.png">
 <meta property="article:published_time" content="2020-02-25T02:30:02.000Z">
-<meta property="article:modified_time" content="2020-04-07T06:35:33.975Z">
+<meta property="article:modified_time" content="2020-04-07T06:41:48.610Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/d1.png">
@@ -419,7 +419,7 @@
 <li>本地预览<br>在cmd中输入hexo s,就会出现<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> .<br><img src="/assets/o.png" alt="alt 图片"><br>复制链接到浏览器，当看到Hexo初始页面即可。<h3 id="写博文"><a href="#写博文" class="headerlink" title="写博文"></a>写博文</h3></li>
 <li>新建一篇博文<br>在cmd中执行hexo new “filename”(filename为文章名称)，执行后,在blog/source/_post下会出现一个Typora文件，打开就可以写自己的博文了。</li>
 <li>写博文<br>具体参考<a href="https://www.runoob.com/markdown/md-link.html" target="_blank" rel="noopener">Markdow教程</a></li>
-<li>查看新博文<br>在写完博文后，可能会修改或添加博文内容，这时候就要下面的三步走<br>清除旧数据     hexo clean<br>生成新数据     hexo g<br>启动hexo        hexo g<h3 id="hexo博客乔迁Github"><a href="#hexo博客乔迁Github" class="headerlink" title="hexo博客乔迁Github"></a>hexo博客乔迁Github</h3><h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h4></li>
+<li>查看新博文<br>在写完博文后，可能会修改或添加博文内容，这时候就要下面的三步走<br>清除旧数据              hexo clean<br>生成新数据              hexo g<br>启动hexo                 hexo d<h3 id="hexo博客乔迁Github"><a href="#hexo博客乔迁Github" class="headerlink" title="hexo博客乔迁Github"></a>hexo博客乔迁Github</h3><h4 id="Github"><a href="#Github" class="headerlink" title="Github"></a>Github</h4></li>
 <li>注册Github<br>点击<a href="https://github.com/" target="_blank" rel="noopener">Github</a>，选择右上角的Sign up注册<br><img src="/assets/p.png" alt="alt 图片"></li>
 <li>在Github下新建仓库<br><img src="/assets/q.png" alt="alt 图片"><br>仓库名称必须写为username.github.io 其中username是你注册Github使用的用户名。<br>建好仓库后，在Settings中Github Pages这一部分要出现Your site is published at<a href="https://username.github.io" target="_blank" rel="noopener">https://username.github.io</a> 字样,表明仓库具备了网页展示功能。<br><img src="/assets/r.png" alt="alt 图片"></li>
 <li>配置ssh密钥<br>在Git Bash Here输入ssh-keygen -t rsa -C “<a href="mailto:youremail@youremail.com">youremail@youremail.com</a>“<br><img src="/assets/s.png" alt="alt 图片"><br>执行这条命令会提示文件保存路径，可以直接按Enter即可,然后会在 .ssh 目录生产两个文件：id_rsa和id_rsa.pub。<br>用记事本打开.ssh目录下的id_rsa.pub文件，复制里面的内容，复制到Github中(点击右上角的头像-&gt;Settings-&gt;SSH and GPG keys-&gt;New SSH key)<br><img src="/assets/t.png" alt="alt 图片"><br>点击Add SSH key即可。<br><img src="/assets/u.png" alt="alt 图片"><h4 id="绑定Hexo和Github"><a href="#绑定Hexo和Github" class="headerlink" title="绑定Hexo和Github"></a>绑定Hexo和Github</h4></li>
