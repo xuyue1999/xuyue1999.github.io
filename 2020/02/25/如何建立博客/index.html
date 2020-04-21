@@ -104,7 +104,7 @@
 <meta property="og:image" content="http://q94ydzakn.bkt.clouddn.com/i.png">
 <meta property="og:image" content="http://q94ydzakn.bkt.clouddn.com/k.png">
 <meta property="article:published_time" content="2020-02-25T02:30:02.000Z">
-<meta property="article:modified_time" content="2020-04-21T12:14:02.132Z">
+<meta property="article:modified_time" content="2020-04-21T12:29:15.883Z">
 <meta property="article:author" content="xy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://q94ydzakn.bkt.clouddn.com/d1.png">
@@ -427,9 +427,8 @@
 <li>修改本地站点配置文件<br>打开blog下的_config.yml，在后面添加<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:  </span><br><span class="line">      type:  git</span><br><span class="line">      repo: git@github.com:username&#x2F;username.github.io.git</span><br><span class="line">      branch:  master</span><br></pre></td></tr></table></figure></li>
 <li>绑定hexo和Github<br>在cmd中输入npm install hexo-deployer-git –save,如果能看到版本号，则说明安装成功。</li>
 <li>上传hexo<br>在cmd中输入hexo d上传hexo.<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3></li>
-</ul>
-<p>1.在添加图片的时候，我是直接打开用来写博文的Typaora，在文件-&gt;偏好设置-&gt; 图像进行如下操作<br><img src="http://q94ydzakn.bkt.clouddn.com/g.png" alt="alt 图片"><br>这样是不能显示图片的，要在格式-&gt;图像-&gt;设置图片根目录，把目录设置到source就可以了。<br>2.采用七牛云添加图片<br>点击<a href="https://portal.qiniu.com/" target="_blank" rel="noopener">七牛云</a>注册，注册好后进行邮箱实名认证，点击空间管理-&gt;新建空间。<br><img src="http://q94ydzakn.bkt.clouddn.com/t1.png" alt="alt 图片"><br>在空间管理-&gt;文件管理-&gt;上传文件,将图片上传上去即可<br><img src="http://q94ydzakn.bkt.clouddn.com/u1.png" alt="alt 图片"><br>可在更多里面直接复制图片链接。</p>
-<h3 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h3><ul>
+<li>在添加图片的时候，我是直接打开用来写博文的Typaora，在文件-&gt;偏好设置-&gt; 图像进行如下操作<br><img src="http://q94ydzakn.bkt.clouddn.com/g.png" alt="alt 图片"><br>这样是不能显示图片的，要在格式-&gt;图像-&gt;设置图片根目录，把目录设置到source就可以了。</li>
+<li>采用七牛云添加图片<br>点击<a href="https://portal.qiniu.com/" target="_blank" rel="noopener">七牛云</a>注册，注册好后进行邮箱实名认证，点击空间管理-&gt;新建空间。<br><img src="http://q94ydzakn.bkt.clouddn.com/t1.png" alt="alt 图片"><br>在空间管理-&gt;文件管理-&gt;上传文件,将图片上传上去即可<br><img src="http://q94ydzakn.bkt.clouddn.com/u1.png" alt="alt 图片"><br>可在更多里面直接复制图片链接。<h3 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h3></li>
 <li>添加评论必须要先选择一个主题。在这里我选择的是next主题，首先克隆项目到themes目录下，输入git clone <a href="mailto:git@github.com">git@github.com</a>:iissnan/hexo-teme-next，在站点配置文件中把theme设置为next即可。注意：配置文件不是next下的配置文件，而是bolg下的配置文件。</li>
 <li>下面就可以添加评论了，我选择的是leancloud作为评论插件，点击<a href="https://www.leancloud.cn" target="_blank" rel="noopener">leancloud</a> 注册,注册好后，先创建应用，直接默认即可。<br><img src="http://q94ydzakn.bkt.clouddn.com/h.png" alt="alt 图片"><br>然后选择设置-&gt;安全中心，再应用 Keys中的AppID和AppKey复制到next下的配置文件，修改配置，定位到valine<br><img src="http://q94ydzakn.bkt.clouddn.com/j.png" alt="alt 图片"><br>在安全中心中，将服务开关中打开数据存储，其余都关闭，在web安全域名输入你的博客链接点击保存。<br><img src="http://q94ydzakn.bkt.clouddn.com/i.png" alt="alt 图片"><br>最后添加评论次数，设置-&gt;存储-&gt;创建Class，创建Comment来统计评论次数<br><img src="http://q94ydzakn.bkt.clouddn.com/k.png" alt="alt 图片"></li>
 </ul>
@@ -457,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/25/%E5%9F%9F%E5%90%8D%E4%B8%8E%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="域名与云服务器">
-                <i class="fa fa-chevron-left"></i> 域名与云服务器
+              <a href="/2020/02/25/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="next" title="建立博客遇到的问题与解决方法">
+                <i class="fa fa-chevron-left"></i> 建立博客遇到的问题与解决方法
               </a>
             
           </div>
@@ -467,8 +466,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/02/25/%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/" rel="prev" title="建立博客遇到的问题与解决方法">
-                建立博客遇到的问题与解决方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/02/25/%E5%9F%9F%E5%90%8D%E4%B8%8E%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="prev" title="域名与云服务器">
+                域名与云服务器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
