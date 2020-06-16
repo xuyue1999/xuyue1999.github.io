@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、查看系统和Chrome的版本Chrome的版本在70.0.3526.0以上windows 10的版本在1703以上 二、下载.hex文件到开发板点击下载 三、扫描周边设备在html-&gt;head-&gt;script中加入discoverDevices()来扫描周边的设备 12345678910111213141516171819function discoverDevices()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="扫描蓝牙设备并连接BBC板">
+<meta property="og:url" content="http://yoursite.com/2020/06/16/micro%20bit%E2%80%94%E2%80%94%E6%98%BE%E7%A4%BA%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0%E5%B9%B6%E8%BF%9E%E6%8E%A5BBC%E6%9D%BF/index.html">
+<meta property="og:site_name" content="xy">
+<meta property="og:description" content="一、查看系统和Chrome的版本Chrome的版本在70.0.3526.0以上windows 10的版本在1703以上 二、下载.hex文件到开发板点击下载 三、扫描周边设备在html-&gt;head-&gt;script中加入discoverDevices()来扫描周边的设备 12345678910111213141516171819function discoverDevices()">
+<meta property="article:published_time" content="2020-06-16T05:45:02.000Z">
+<meta property="article:modified_time" content="2020-06-16T07:32:01.044Z">
+<meta property="article:author" content="xy">
+<meta name="twitter:card" content="summary">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":30,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/06/16/micro bit——显示蓝牙设备名称并连接BBC板/"/>
+
+
+
+
+
+  <title>扫描蓝牙设备并连接BBC板 | xy</title>
+  
+
+
+
+
+
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">xy</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/%20" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/16/micro%20bit%E2%80%94%E2%80%94%E6%98%BE%E7%A4%BA%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0%E5%B9%B6%E8%BF%9E%E6%8E%A5BBC%E6%9D%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="xy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/1.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="xy">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">扫描蓝牙设备并连接BBC板</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-16T13:45:02+08:00">
+                2020-06-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/06/16/micro%20bit%E2%80%94%E2%80%94%E6%98%BE%E7%A4%BA%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0%E5%B9%B6%E8%BF%9E%E6%8E%A5BBC%E6%9D%BF/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/06/16/micro%20bit%E2%80%94%E2%80%94%E6%98%BE%E7%A4%BA%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E5%90%8D%E7%A7%B0%E5%B9%B6%E8%BF%9E%E6%8E%A5BBC%E6%9D%BF/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  805
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、查看系统和Chrome的版本"><a href="#一、查看系统和Chrome的版本" class="headerlink" title="一、查看系统和Chrome的版本"></a>一、查看系统和Chrome的版本</h3><p>Chrome的版本在70.0.3526.0以上<br>windows 10的版本在1703以上</p>
+<h3 id="二、下载-hex文件到开发板"><a href="#二、下载-hex文件到开发板" class="headerlink" title="二、下载.hex文件到开发板"></a>二、下载.hex文件到开发板</h3><p><a href="![img](file:///C:\Users\86130\AppData\Roaming\Tencent\QQTempSys%W@GJ$ACOF(TYDYECOKVDYB.png)https://makecode.microbit.org/v0/89975-20684-84568-20127">点击下载</a></p>
+<h3 id="三、扫描周边设备"><a href="#三、扫描周边设备" class="headerlink" title="三、扫描周边设备"></a>三、扫描周边设备</h3><p>在html-&gt;head-&gt;script中加入discoverDevices()来扫描周边的设备</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">function discoverDevices()</span><br><span class="line">        &#123; </span><br><span class="line">            console.log(&quot;discoverDevices&quot;);</span><br><span class="line">            var options &#x3D; &#123;acceptallDevices:true&#125;       &#x2F;&#x2F;发现所有周边蓝牙设备</span><br><span class="line">           </span><br><span class="line">            navigator.bluetooth.requestDevice(options)</span><br><span class="line">            .then(device &#x3D;&gt; &#123;</span><br><span class="line">                console.log(&#39;&gt; Name:&#39; + device.name);</span><br><span class="line">                console.log(&#39;&gt; Id:&#39; + device.id);</span><br><span class="line">                console.log(&#39;&gt; Connected:&#39; + device.gatt.connected);</span><br><span class="line">                selected_device &#x3D; device;</span><br><span class="line">                console.log(selected_device);</span><br><span class="line">                connect();</span><br><span class="line">                &#125;)</span><br><span class="line">            .catch(error &#x3D;&gt; &#123;</span><br><span class="line">                alert(&#39;ERROR&#39; +error);</span><br><span class="line">                console.log(&#39;ERROR&#39; +error);</span><br><span class="line">                &#125;);       </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在body中加入一个按键，用来点击调用discoverDevices()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;</span><br><span class="line">            Device Discovery or Disconnect</span><br><span class="line">        &lt;&#x2F;h2&gt;</span><br><span class="line">        &lt;button id &#x3D; &quot;btn_scan&quot; onclick&#x3D;&quot;discoverDevices()&quot;&gt;Start scan&lt;&#x2F;button&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样就可以扫描到周边的蓝牙设备</p>
+<h3 id="四、连接蓝牙设备"><a href="#四、连接蓝牙设备" class="headerlink" title="四、连接蓝牙设备"></a>四、连接蓝牙设备</h3><p>在先前的代码中加入一个connect()函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function connect()</span><br><span class="line">    &#123;</span><br><span class="line">        console.log(&quot;connecting&quot;);</span><br><span class="line">        selected_device.gatt.connect()</span><br><span class="line">        .then(</span><br><span class="line">            function (server)</span><br><span class="line">            &#123;</span><br><span class="line">                console.log(&quot;Connected to&quot; + server.device.id);</span><br><span class="line">                console.log(&quot;Connected &quot; + server.connected);</span><br><span class="line">                selected_device.addEventListener(&#39;gattserverdisconnected&#39;,onDisconnected);</span><br><span class="line">                connected_server &#x3D;server;</span><br><span class="line">                setConnectedStatus(true);</span><br><span class="line">            &#125;,</span><br><span class="line">            function (error)</span><br><span class="line">            &#123;</span><br><span class="line">                console.log(&quot;ERROR:could not connct-&quot; + error);</span><br><span class="line">               alert(&quot;ERROR:could not connct-&quot; + error);</span><br><span class="line">               setConnectedStatus(false);</span><br><span class="line">            &#125;</span><br><span class="line">        );</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在discoverDevices()中调用这个函数，定义selected_device来保存用户选择的蓝牙设备，定义connected_server来保存用户选择的蓝牙设备</p>
+<p>将.html文件托到Chrome中，点击按钮，开发板小灯显示C则表示连接成功。</p>
+<h3 id="五、随意连接和断开蓝牙设备"><a href="#五、随意连接和断开蓝牙设备" class="headerlink" title="五、随意连接和断开蓝牙设备"></a>五、随意连接和断开蓝牙设备</h3><p>我们可以在按钮前加一个表格来显示蓝牙设备是否连接，连接显示true,断开显示false</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;h2&gt;  Status</span><br><span class="line">      &lt;&#x2F;h2&gt;</span><br><span class="line">          &lt;table border&#x3D;&quot;1&quot;&gt;</span><br><span class="line">              &lt;tr&gt;</span><br><span class="line">                  &lt;td&gt;     &lt;b&gt;Connected&lt;&#x2F;b&gt;   &lt;&#x2F;td&gt;</span><br><span class="line">              &lt;&#x2F;tr&gt;</span><br><span class="line">              &lt;tr&gt;</span><br><span class="line">                  &lt;td id&#x3D;&quot;status_connected&quot;&gt; false &lt;&#x2F;td&gt;</span><br><span class="line">              &lt;&#x2F;tr&gt;</span><br><span class="line">          &lt;&#x2F;table&gt;</span><br><span class="line">          &lt;hr&gt;</span><br><span class="line">      &lt;h2&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在这边可以优化一下，把之前的按钮这调用的函数改成discoverOrdisconnectDevices()函数，discoverOrdisconnectDevices()函数如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> function discoverOrdisconnectDevices()</span><br><span class="line">&#123;</span><br><span class="line">    console.log(&quot;discoverOrdisconnectDevices&quot;);</span><br><span class="line">    if(!connected)</span><br><span class="line">    discoverDevices();</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        selected_device.gatt.disconnect();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>connect()函数也要加3条语句</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function connect()</span><br><span class="line">&#123;</span><br><span class="line">    console.log(&quot;connecting&quot;);</span><br><span class="line">    selected_device.gatt.connect()</span><br><span class="line">    .then(</span><br><span class="line">        function (server)</span><br><span class="line">        &#123;</span><br><span class="line">            console.log(&quot;Connected to&quot; + server.device.id);</span><br><span class="line">            console.log(&quot;Connected &quot; + server.connected);</span><br><span class="line">            selected_device.addEventListener(&#39;gattserverdisconnected&#39;,onDisconnected);&#x2F;&#x2F; 1</span><br><span class="line">            connected_server &#x3D;server;</span><br><span class="line">            setConnectedStatus(true);  &#x2F;&#x2F; 2</span><br><span class="line">        &#125;,</span><br><span class="line">        function (error)</span><br><span class="line">        &#123;</span><br><span class="line">            console.log(&quot;ERROR:could not connct-&quot; + error);</span><br><span class="line">           alert(&quot;ERROR:could not connct-&quot; + error);</span><br><span class="line">           setConnectedStatus(false);  &#x2F;&#x2F; 3</span><br><span class="line">        &#125;</span><br><span class="line">    );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>connect()中的1启到一个监听的作用，只要按钮的状态发生变化就调用onDisconnected()函数，onDisconnected()函数如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function onDisconnected()</span><br><span class="line"> &#123;</span><br><span class="line">     console.log(&quot;onDisconnected&quot;);</span><br><span class="line">     resetUI();</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>在onDisconnected()函数中，resetUI是用来调用 setConnectedStatus()函数，括号里的值为flase, 在connect()函数2和3，也调用了这个函数。setConnectedStatus()函数用来改变按钮所显示文字和表格中是否连接的状态使其可以true和flase之前变化，setConnectedStatus()函数如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function setConnectedStatus(status)</span><br><span class="line">&#123;</span><br><span class="line">    connected&#x3D;status;</span><br><span class="line">    document.getElementById(&#39;status_connected&#39;).innerHTML &#x3D; status;</span><br><span class="line">    if(status&#x3D;&#x3D;true)</span><br><span class="line">    &#123;</span><br><span class="line">        document.getElementById(&#39;btn_scan&#39;).innerHTML &#x3D; &quot;Disconnect&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        document.getElementById(&#39;btn_scan&#39;).innerHTML &#x3D; &quot;Discover Devices&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样开发板就可以随意连接和断开蓝牙设备</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/04/05/%E5%9F%9F%E5%90%8D%E4%B8%8E%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="next" title="域名与云服务器">
+                <i class="fa fa-chevron-left"></i> 域名与云服务器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+ 
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/1.jpg"
+                alt="xy" />
+            
+              <p class="site-author-name" itemprop="name">xy</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/%20%7C%7C%20archive">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xuyue1999" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2055379793@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、查看系统和Chrome的版本"><span class="nav-number">1.</span> <span class="nav-text">一、查看系统和Chrome的版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、下载-hex文件到开发板"><span class="nav-number">2.</span> <span class="nav-text">二、下载.hex文件到开发板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、扫描周边设备"><span class="nav-number">3.</span> <span class="nav-text">三、扫描周边设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、连接蓝牙设备"><span class="nav-number">4.</span> <span class="nav-text">四、连接蓝牙设备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、随意连接和断开蓝牙设备"><span class="nav-number">5.</span> <span class="nav-text">五、随意连接和断开蓝牙设备</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+ <div id="music163player">
+    <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=28188427&auto=1&height=66"></iframe>
+</div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">xy</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+<img src="https://static.dy208.cn/o_1dfilp8ruo521thr1hvf18ji17soa.png">
+<a href="http://www.beian.miit.gov.cn/"  style="color:#f72b07" target="_blank">苏ICP备20024123号</a>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'AyNhN9cm17nxURjuI9EQMSYq-gzGzoHsz',
+        appKey: 'LwGEcm10ONqItb2cjyehrTO3',
+        placeholder: '想说点什么~',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+<!-- 小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
