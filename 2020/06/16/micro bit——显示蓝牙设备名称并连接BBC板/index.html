@@ -87,7 +87,7 @@
 <meta property="og:description" content="一、查看系统和Chrome的版本Chrome的版本在70.0.3526.0以上windows 10的版本在1703以上 二、下载.hex文件到开发板点击下载下载完成后，直接把.hex文件托到BBC的盘符中，当板子插到电脑上后会显示滚动的Hi!，当蓝牙连接成功后会显示C，断开连接会显示D。 三、扫描周边设备在html-&gt;head-&gt;script中加入discoverDevices()来扫">
 <meta property="og:image" content="http://yoursite.com/assets/x1.png">
 <meta property="article:published_time" content="2020-06-16T05:45:02.000Z">
-<meta property="article:modified_time" content="2020-06-16T09:31:06.551Z">
+<meta property="article:modified_time" content="2020-06-23T04:50:16.963Z">
 <meta property="article:author" content="xy">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://yoursite.com/assets/x1.png">
@@ -315,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">hexo</span>
+                  <a href="/categories/BBC/" itemprop="url" rel="index">
+                    <span itemprop="name">BBC</span>
                   </a>
                 </span>
 
@@ -356,7 +356,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  895
+                  892
                 </span>
               
 
@@ -423,7 +423,7 @@
 <p>在onDisconnected()函数中，resetUI是用来调用 setConnectedStatus()函数，括号里的值为flase, 在connect()函数2和3，也调用了这个函数。setConnectedStatus()函数用来改变按钮所显示文字和表格中是否连接的状态使其可以true和flase之前变化，setConnectedStatus()函数如下</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">function setConnectedStatus(status)</span><br><span class="line">&#123;</span><br><span class="line">    connected&#x3D;status;</span><br><span class="line">    document.getElementById(&#39;status_connected&#39;).innerHTML &#x3D; status;</span><br><span class="line">    if(status&#x3D;&#x3D;true)</span><br><span class="line">    &#123;</span><br><span class="line">        document.getElementById(&#39;btn_scan&#39;).innerHTML &#x3D; &quot;Disconnect&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        document.getElementById(&#39;btn_scan&#39;).innerHTML &#x3D; &quot;Discover Devices&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这样开发板就可以随意连接和断开蓝牙设备了。</p>
+<p>这样就可以随意连接和断开蓝牙设备了。</p>
 
       
     </div>
@@ -457,6 +457,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/06/20/micro%20bit%E2%80%94%E2%80%94%E6%B8%A9%E5%BA%A6%E6%9C%8D%E5%8A%A1%E5%8F%8A%E5%85%B6%E7%89%B9%E6%80%A7/" rel="prev" title="温度服务及其特性">
+                温度服务及其特性 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -540,7 +544,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +555,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
